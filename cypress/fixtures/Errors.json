@@ -1,0 +1,7 @@
+{
+"fieldIsRequired" : "Field is required",
+"emailIsRequired" : "Email is required",
+"noSuchUser" : "No such user",
+"invalidPassword" : "Invalid Password",
+"invalidEmailFormat" : "Invalid email"
+}

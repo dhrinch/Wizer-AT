@@ -1,0 +1,10 @@
+{
+    "video" : false,
+    "chromeWebSecurity" : false,
+    "blockHosts" : [
+        "*google-analytics.com",
+        "*doubleclick.net",
+        "*hotjar.com",
+        "*segment.com"
+    ]
+}
