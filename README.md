@@ -2,7 +2,7 @@
 
 ## Cypress installation
 
-Make sure NodeJS runtime is installed on your computer. If not, latest installer can be downloaded from ```https://nodejs.org/en/download/```. Clone project from Git repository: ```git clone<path to git repository>```. In Terminal (Command Prompt on Windows OS) switch to project folder by typing ```cd </your/project/path>```, then install Cypress via ```npm```: ```npm install cypress --save-dev```.
+Make sure NodeJS runtime is installed on your computer. If not, latest installer can be downloaded [here](https://nodejs.org/en/download/). Clone project from Git repository: ```git clone<path to git repository>```. In Terminal (Command Prompt on Windows OS) switch to project folder by typing ```cd </your/project/path>```, then install Cypress via ```npm```: ```npm install cypress --save-dev```.
 
 ## Running tests in graphical Cypress UI
 
