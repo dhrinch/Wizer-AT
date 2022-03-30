@@ -1,9 +1,14 @@
 {
   "devDependencies": {
     "cypress": "^9.5.3"
-    },
-    "scripts":{
-      "cy:open": "cypress open",
-      "cy:run": "cypress run"
-    }
+  },
+  "scripts": {
+    "cy:open:prod": "cypress open --env env=prod",
+    "cy:open:stg": "cypress open --env env=stg",
+    "cy:open:second": "cypress open --env env=second",
+
+    "cy:run:prod":"cypress run --env env=prod",
+    "cy:run:stg":"cypress run --env env=stg",
+    "cy:run:second":"cypress run --env env=second"
+  }
 }

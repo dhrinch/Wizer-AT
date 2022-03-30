@@ -8,9 +8,8 @@ describe('Test login page', () => {
         cy.fixture('Credentials').then(creds => credentials = creds);
         cy.fixture('Errors').then(err => errors = err);
     });
-    const testEnvironment = "secondary";
     beforeEach(() => {
-        login.navigate(testEnvironment);
+        login.navigate();
     });
     
     it('Verify all links on page', () => {
@@ -94,6 +93,6 @@ describe('Test login page', () => {
    it('Verify login with correct credentials', () => {
         cy.logIn(credentials.correctEmail_nonSSO, 
                  credentials.correctPassword_nonSSO);
-        cy.url().should('eq',login.getURL(testEnvironment)+'/dashboard/community');
+        cy.url().should('eq',login.getBaseUrl()+'/dashboard/community');
     });
 });

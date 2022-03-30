@@ -1,16 +1,6 @@
+import { Utility } from "../../../support/utility"
+const url = new Utility().getURL();
 class LoginPage {
-    getURL(env){
-        if(env === "production") {
-            return Cypress.env('URLs').Prod_URL;
-        }
-        if(env === "development") {
-            return Cypress.env('URLs').Dev_URL;    
-        }
-        if(env === "secondary") {
-            return Cypress.env('URLs').Secondary_URL;
-        }
-    }
-    
     ssoLoginButtons(){
         return cy.get('.external-login');
     }
@@ -61,8 +51,8 @@ class LoginPage {
         return cy.get('.subtitle');
     }
     
-    navigate(env) {
-        cy.visit(this.getURL(env)+'/login');
+    navigate() {
+        cy.visit(url+'/login');
     }
 
     enterEmail(email) {
@@ -113,6 +103,10 @@ class LoginPage {
         this.clearPasswordButton()
             .click();
         return this
+    }
+
+    getBaseUrl(){ 
+        return url;
     }
 }
 export default LoginPage

@@ -1,16 +1,6 @@
+import { Utility } from "../../../support/utility"
+const url = new Utility().getURL();
 class SignupPage {
-    getURL(env){
-        if(env === "production") {
-            return Cypress.env('URLs').Prod_URL;
-        }
-        if(env === "development") {
-            return Cypress.env('URLs').Dev_URL;    
-        }
-        if(env === "secondary") {
-            return Cypress.env('URLs').Secondary_URL;
-        }
-    }
-
     logInLink(){
         return cy.get('.auth-text>a');
     }
@@ -82,7 +72,7 @@ class SignupPage {
     }
 
     navigate(env) {
-        cy.visit(this.getURL(env)+'/signup');
+        cy.visit(url+'/signup');
     }
 
     selectTeacherRole() {

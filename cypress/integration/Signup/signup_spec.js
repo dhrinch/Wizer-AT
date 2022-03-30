@@ -8,9 +8,8 @@ describe('Test signup page', () => {
       cy.fixture('Credentials').then(creds => credentials = creds);
       cy.fixture('Errors').then(err => errors = err);
     });
-    const testEnvironment = "secondary";
     beforeEach(() => {
-      signup.navigate(testEnvironment);
+      signup.navigate();
     });
 
     it('Verify all controls are active and valid on role selection page', () => {
