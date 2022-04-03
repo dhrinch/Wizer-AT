@@ -48,7 +48,7 @@ class SignupPage {
     }
 
     repeatPasswordInput() {
-        return cy.get('input[name=repeatPassword]');
+        return cy.get('input[placeholder="Repeat password"]');
     }
 
     clearEmailButton() {
@@ -56,7 +56,11 @@ class SignupPage {
     }
 
     clearPasswordButton() {
-        return cy.get('wizer-input[name=password]>.mat-focus-indicator');
+        return cy.get('wizer-input[placeholder=Password]>.mat-focus-indicator');
+    }
+
+    clearRepeatPasswordButton() {
+        return cy.get('wizer-input[placeholder="Repeat password"]>.mat-focus-indicator');
     }
 
     errorMessage() {
@@ -112,8 +116,21 @@ class SignupPage {
         return this
     }
 
+    deleteRepeatPassword() {
+        this.repeatPasswordInput()
+            .clear();
+        return this
+    }
+
     enterPassword(password) {
         this.passwordInput()
+            .clear()
+            .type(password);
+        return this
+    }
+
+    enterRepeatPassword(password) {
+        this.repeatPasswordInput()
             .clear()
             .type(password);
         return this
@@ -127,6 +144,18 @@ class SignupPage {
 
     clickClearEmail(){
         this.clearEmailButton()
+            .click();
+        return this
+    }
+
+    clickClearPassword(){
+        this.clearPasswordButton()
+            .click();
+        return this
+    }
+
+    clickClearRepeatPassword(){
+        this.clearRepeatPasswordButton()
             .click();
         return this
     }

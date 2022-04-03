@@ -4,14 +4,16 @@ describe('Test login page', () => {
     const login = new LoginPage();
     let credentials;
     let errors;
+    let strings;
     before(() => {
-        cy.fixture('Credentials').then(creds => credentials = creds);
-        cy.fixture('Errors').then(err => errors = err);
+      cy.fixture('Credentials').then(creds => credentials = creds);
+      cy.fixture('Errors').then(err => errors = err);
+      cy.fixture('Strings').then(str => strings = str);
     });
     beforeEach(() => {
         login.navigate();
     });
-    
+
     it('Verify all links on page', () => {
         cy.get('a').each(page => {
           cy.request(page.prop('href'))
@@ -85,9 +87,9 @@ describe('Test login page', () => {
     it('Verify SSO login buttons are visible', () => {
         login.ssoLoginButtons()
             .should('be.visible')
-            .should('contain', 'Connect with Google')
-            .should('contain', 'Connect with Edmodo')
-            .should('contain', 'Connect with Microsoft');
+            .should('contain', strings.googleSSO)
+            .should('contain', strings.edmodoSSO)
+            .should('contain', strings.microsoftSSO);
     });
 
    it('Verify login with correct credentials', () => {

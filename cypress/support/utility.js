@@ -7,5 +7,7 @@ export class Utility {
             return "https://stgapp.wizer.me";
         else if(env === "second")
             return "https://secondary.wizer.me";
+        else if(env === "dev")
+            return "https://devapp.wizer.me";
     }
 }

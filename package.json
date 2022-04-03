@@ -6,9 +6,11 @@
     "cy:open:prod": "cypress open --env env=prod",
     "cy:open:stg": "cypress open --env env=stg",
     "cy:open:second": "cypress open --env env=second",
+    "cy:open:dev":"cypress open --env env=dev",
 
     "cy:run:prod":"cypress run --env env=prod",
     "cy:run:stg":"cypress run --env env=stg",
-    "cy:run:second":"cypress run --env env=second"
+    "cy:run:second":"cypress run --env env=second",
+    "cy:run:dev":"cypress run --env env=dev"
   }
 }
