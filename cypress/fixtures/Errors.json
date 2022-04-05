@@ -1,11 +1,11 @@
 {
-"fieldIsRequired" : "Field is required",
-"emailIsRequired" : "Email is required",
-"noSuchUser" : "No such user",
-"invalidPassword" : "Invalid Password",
-"wrongPasswordLengthTeacher" : "Password should be between 6 and 32 characters long.",
-"wrongPasswordLengthStudent" : "Password should be between 4 and 32 characters long.",
-"invalidEmailFormat" : "Invalid email",
-"nonMatchingPasswords" : "Passwords must match",
-"emailAlreadyUsed" : "This email is already being used. Try another one."
+    "fieldIsRequired" : "Field is required",
+    "emailIsRequired" : "Email is required",
+    "noSuchUser" : "No such user",
+    "invalidPassword" : "Invalid Password",
+    "wrongPasswordLengthTeacher" : "Password should be between 6 and 32 characters long.",
+    "wrongPasswordLengthStudent" : "Password should be between 4 and 32 characters long.",
+    "invalidEmailFormat" : "Invalid email",
+    "nonMatchingPasswords" : "Passwords must match",
+    "emailAlreadyUsed" : "This email is already being used. Try another one."
 }

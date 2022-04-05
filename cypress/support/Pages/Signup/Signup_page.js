@@ -82,82 +82,69 @@ class SignupPage {
     selectTeacherRole() {
         this.roleSelectTeacherButton()
             .click();
-        return this;
     }
 
     selectStudentRole() {
         this.roleSelectStudentButton()
-            .click();
-        return this;
+            .click();    
     }
 
     switchRole() {
         this.roleSwitchLink()
             .click();
-        return this;
     }
 
     enterEmail(email) {
         this.emailInput()
             .clear()
             .type(email);
-        return this
     }
 
     deleteEmail() {
         this.emailInput()
             .clear();
-        return this
     }
 
     deletePassword() {
         this.passwordInput()
             .clear();
-        return this
     }
 
     deleteRepeatPassword() {
         this.repeatPasswordInput()
             .clear();
-        return this
     }
 
     enterPassword(password) {
         this.passwordInput()
             .clear()
             .type(password);
-        return this
     }
 
     enterRepeatPassword(password) {
         this.repeatPasswordInput()
             .clear()
             .type(password);
-        return this
     }
 
     switchToLogin(){
         this.logInLink()
             .click();
-        return this;
     }
 
     clickClearEmail(){
         this.clearEmailButton()
             .click();
-        return this
     }
 
     clickClearPassword(){
         this.clearPasswordButton()
             .click();
-        return this
     }
 
     clickClearRepeatPassword(){
         this.clearRepeatPasswordButton()
             .click();
-        return this
     }
 }
 export default SignupPage

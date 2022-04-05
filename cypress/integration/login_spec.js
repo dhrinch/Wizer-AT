@@ -1,4 +1,4 @@
-import LoginPage from '../Pages/Login/Login_Page';
+import LoginPage from '../support/Pages/Login/Login_Page';
 
 describe('Test login page', () => {
     const login = new LoginPage();
@@ -6,9 +6,9 @@ describe('Test login page', () => {
     let errors;
     let strings;
     before(() => {
-      cy.fixture('Credentials').then(creds => credentials = creds);
-      cy.fixture('Errors').then(err => errors = err);
-      cy.fixture('Strings').then(str => strings = str);
+        cy.fixture('Credentials').then(creds => credentials = creds);
+        cy.fixture('Errors').then(err => errors = err);
+        cy.fixture('Strings').then(str => strings = str);
     });
     beforeEach(() => {
         login.navigate();
@@ -16,7 +16,7 @@ describe('Test login page', () => {
 
     it('Verify all links on page', () => {
         cy.get('a').each(page => {
-          cy.request(page.prop('href'))
+            cy.request(page.prop('href'))
         });
     });
     
@@ -39,8 +39,8 @@ describe('Test login page', () => {
     });
 
     it('Verify error is displayed if wrong password is entered', () => {
-        cy.logIn(credentials.correctEmail_nonSSO, 
-                credentials.nonExistingPassword)
+        cy.logIn(   credentials.correctEmail_nonSSO, 
+                    credentials.nonExistingPassword)
         login.errorMessage().should('contain', errors.invalidPassword);
     });
     

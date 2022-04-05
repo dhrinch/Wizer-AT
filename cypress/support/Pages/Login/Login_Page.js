@@ -59,50 +59,42 @@ class LoginPage {
         this.emailInput()
             .clear()
             .type(email);
-        return this
     }
 
     deleteEmail() {
         this.emailInput()
             .clear();
-        return this
     }
 
     deletePassword() {
         this.passwordInput()
             .clear();
-        return this
     }
 
     enterPassword(password) {
         this.passwordInput()
             .clear()
             .type(password);
-        return this
     }
 
     toggleRememberMe() {
         this.rememberMeCheckbox()
             .click();
-        return this
     }
 
     clickLoginButton() {
         this.loginButton()
             .click();
-        return this
     }
 
     clickClearEmail(){
         this.clearEmailButton()
             .click();
-        return this
     }
 
     clickClearPassword(){
         this.clearPasswordButton()
             .click();
-        return this
     }
 
     getBaseUrl(){ 

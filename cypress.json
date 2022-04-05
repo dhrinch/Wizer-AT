@@ -6,5 +6,9 @@
         "*doubleclick.net",
         "*hotjar.com",
         "*segment.com"
-    ]
+    ],
+    "env":{
+        "CF-Access-Client-Id" : "9c9291ffaf02a045ac6d74c496c71836.access",
+        "CF-Access-Client-Secret" : "f6fc1b9686fdad385b30300abdf13f135f5b25d55ea6ffc4bd70ecda7a4aae85"
+    }
 }
