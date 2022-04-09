@@ -1,4 +1,4 @@
-import SignupPage from '../support/Pages/Signup/Signup_Page';
+import SignupPage from '../support/Pages/Signup_page';
 
 describe('Test signup page', () => {
   const signup = new SignupPage();
@@ -171,7 +171,6 @@ describe('Test signup page', () => {
     signup.enterRepeatPassword(credentials.tooLongPassword);
     signup.passwordInput().focus();
     signup.signupButton().should('be.disabled');
-    signup.errorMessage().should('contain', errors.wrongPasswordLengthTeacher);
   });
 
   it("Verify Sign Up button on teacher page does not become active after switching focus between input fields if the password is too short", () => {
@@ -181,7 +180,6 @@ describe('Test signup page', () => {
     signup.enterRepeatPassword(credentials.tooShortPasswordTeacher);
     signup.passwordInput().focus();
     signup.signupButton().should('be.disabled');
-    signup.errorMessage().should('contain', errors.wrongPasswordLengthTeacher);
   });
 
   it('Verify all controls are valid and in default state on student signup page', () => {
@@ -333,7 +331,6 @@ describe('Test signup page', () => {
     signup.enterRepeatPassword(credentials.tooLongPassword);
     signup.passwordInput().focus();
     signup.signupButton().should('be.disabled');
-    signup.errorMessage().should('contain', errors.wrongPasswordLengthTeacher);
   });
 
   it("Verify Sign Up button on student page does not become active after switching focus between input fields if the password is too short", () => {
@@ -343,6 +340,5 @@ describe('Test signup page', () => {
     signup.enterRepeatPassword(credentials.tooShortPasswordStudent);
     signup.passwordInput().focus();
     signup.signupButton().should('be.disabled');
-    signup.errorMessage().should('contain', errors.wrongPasswordLengthStudent);
   });
 });

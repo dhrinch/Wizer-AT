@@ -1,4 +1,4 @@
-import LoginPage from '../support/Pages/Login/Login_Page';
+import LoginPage from '../support/Pages/Login_Page';
 
 describe('Test login page', () => {
     const login = new LoginPage();
@@ -45,7 +45,7 @@ describe('Test login page', () => {
     });
     
     it('Verify error is displayed if email is deleted', () => {
-        login.enterEmail(credentials.correctEmail_nonSSO);
+        login.enterEmail(credentials.nonExistingEmail);
         login.toggleRememberMe();
         login.deleteEmail();
         login.toggleRememberMe();
@@ -54,7 +54,7 @@ describe('Test login page', () => {
     });
 
     it('Verify Clear Email button is working', () => {
-        login.enterEmail(credentials.correctEmail_nonSSO);
+        login.enterEmail(credentials.nonExistingEmail);
         login.toggleRememberMe();
         login.clickClearEmail();
         login.emailInput().should('be.empty');
@@ -64,8 +64,8 @@ describe('Test login page', () => {
     });
 
     it('Verify error is displayed if password is deleted', () => {
-        cy.enterCredentials(credentials.correctEmail_nonSSO, 
-                            credentials.correctPassword_nonSSO);
+        cy.enterCredentials(credentials.nonExistingEmail, 
+                            credentials.nonExistingPassword);
         login.toggleRememberMe();
         login.deletePassword();
         login.toggleRememberMe();
@@ -74,8 +74,8 @@ describe('Test login page', () => {
     });
     
     it('Verify Clear Password button is working', () => {
-        cy.enterCredentials(credentials.correctEmail_nonSSO, 
-                            credentials.correctPassword_nonSSO);
+        cy.enterCredentials(credentials.nonExistingEmail, 
+                            credentials.nonExistingPassword);
         login.toggleRememberMe();
         login.clickClearPassword();
         login.passwordInput().should('be.empty');

@@ -1,4 +1,4 @@
-import { Utility } from "../../../support/utility"
+import { Utility } from "../utility"
 const url = new Utility().getURL();
 class SignupPage {
     logInLink(){

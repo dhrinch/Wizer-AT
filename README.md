@@ -13,3 +13,5 @@ In Cypress UI, tests can be run by clicking on the name of the spec file (e.g. `
 ## Running tests headlessly
 
 Tests can also be run headlessly, without opening the browser window, by executing command ```npm run cy:run:<env>``` in the command line interface, where ```<env>``` is an appropriate server environment (```stg``` for Staging, ```second``` for Secondary, ```prod``` for Production and ```dev``` for Dev environment). Tests' progress, execution time and summary will be shown in terminal window. For failed tests, Cypress will capture screenshots, which will be located in ```Cypress\screenshots``` in the project folder.
+
+To reduce test flakiness, failing tests will be retried 2 times both in UI and headless modes.
