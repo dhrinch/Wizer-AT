@@ -7,5 +7,7 @@
     "wrongPasswordLengthStudent" : "Password should be between 4 and 32 characters long.",
     "invalidEmailFormat" : "Invalid email",
     "nonMatchingPasswords" : "Passwords must match",
-    "emailAlreadyUsed" : "This email is already being used. Try another one."
+    "emailAlreadyUsed" : "This email is already being used. Try another one.",
+    "passwordsDoNotMatch" : "Passwords do not match!",
+    "passwordResetWrongLength" : "Password must be 6-15 characters."
 }

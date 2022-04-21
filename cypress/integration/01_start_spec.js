@@ -2,15 +2,10 @@ import LandingPage from '../support/Pages/Landing_Page';
 
 describe('Test landing page', () => {
     const start = new LandingPage();
-    let credentials;
-    let errors;
-    let strings;
-    before(() => {
-        cy.fixture('Credentials').then(creds => credentials = creds);
-        cy.fixture('Errors').then(err => errors = err);
-        cy.fixture('Strings').then(str => strings = str);
-    });
+    
     beforeEach(() => {
+        cy.fixture('Errors.json').as('errors');
+        cy.fixture('Strings.json').as('strings');
         start.navigate();
     });
 
@@ -21,7 +16,8 @@ describe('Test landing page', () => {
     });
 
     it.only('Verify entering class code redirects to student login page',() => {
-        start.enterClassCode(credentials.classCode);
+        start.enterClassCode(Cypress.env('credentials').classCode);
         start.clickGoButton();
+        cy.url().should('eq',Cypress.config('baseUrl')+'/studentSignin?redir=%2FjoinClass%2F' + Cypress.env('credentials').classCode + '&name=Join%20Class:%20testoard/community');
     })
 })

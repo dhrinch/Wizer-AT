@@ -1,5 +1,5 @@
-import { Utility } from "../utility"
-const url = new Utility().getURL();
+const url = Cypress.config('baseUrl');
+
 class LandingPage {
 
     classCodeInput(){

@@ -1,15 +1,15 @@
 {
   "devDependencies": {
-    "cypress": "^9.5.3"
+    "cypress": "^9.5.4"
   },
   "scripts": {
-    "cy:open:prod": "cypress open --env env=prod",
-    "cy:open:stg": "cypress open --env env=stg",
-    "cy:open:second": "cypress open --env env=second",
-    "cy:open:dev": "cypress open --env env=dev",
-    "cy:run:prod": "cypress run --env env=prod",
-    "cy:run:stg": "cypress run --env env=stg",
-    "cy:run:second": "cypress run --env env=second",
-    "cy:run:dev": "cypress run --env env=dev"
+    "cy:open:prod": "cypress open --config-file env_prod.json",
+    "cy:open:stg": "cypress open --config-file env_stg.json",
+    "cy:open:second": "cypress open --config-file env_second.json",
+    "cy:open:dev": "cypress open --config-file env_dev.json",
+    "cy:run:prod": "cypress run --config-file env_prod.json",
+    "cy:run:stg": "cypress run --config-file env_stg.json",
+    "cy:run:second": "cypress run --config-file env_second.json",
+    "cy:run:dev": "cypress run --config-file env_dev.json"
   }
 }

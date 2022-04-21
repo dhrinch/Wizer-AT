@@ -1,5 +1,5 @@
-import { Utility } from "../utility"
-const url = new Utility().getURL();
+const url = Cypress.config('baseUrl');
+
 class SignupPage {
     logInLink(){
         return cy.get('.auth-text>a');
@@ -75,7 +75,7 @@ class SignupPage {
         return cy.get('.subtitle.not-sth')
     }
 
-    navigate(env) {
+    navigate() {
         cy.visit(url+'/signup');
     }
 

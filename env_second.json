@@ -1,0 +1,20 @@
+{
+    "extends": "./cypress.json",
+    "baseUrl": "https://secondary.wizer.me",
+    
+    "env" : {
+        "credentials" : {
+            "correctEmail_nonSSO" : "dennis+nonPremium@wizer.me",
+            "correctPassword_nonSSO" : "test01",
+            "nonExistingEmail" : "some@email.com",
+            "nonExistingPassword" : "some@password",
+            "nonMatchingPassword" : "some@password1",
+            "tooLongPassword": "6Z2H1eV3bcKOlMMVYM41ikaWUj4aw97qW",
+            "tooShortPasswordTeacher":"abcde",
+            "tooShortPasswordStudent":"abc",
+            "invalidEmailFormat" : "invalidEmail",
+            "emailAlreadyUsed" : "denys.grinchenko@10clouds.com",
+            "classCode" : "dBjRJR"
+        }
+    }
+}

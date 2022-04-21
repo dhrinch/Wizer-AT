@@ -1,5 +1,5 @@
-import { Utility } from "../utility"
-const url = new Utility().getURL();
+const url = Cypress.config('baseUrl');
+
 class LoginPage {
     ssoLoginButtons(){
         return cy.get('.external-login');
@@ -95,10 +95,6 @@ class LoginPage {
     clickClearPassword(){
         this.clearPasswordButton()
             .click();
-    }
-
-    getBaseUrl(){ 
-        return url;
-    }
+    }    
 }
 export default LoginPage

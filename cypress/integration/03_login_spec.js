@@ -2,15 +2,10 @@ import LoginPage from '../support/Pages/Login_Page';
 
 describe('Test login page', () => {
     const login = new LoginPage();
-    let credentials;
-    let errors;
-    let strings;
-    before(() => {
-        cy.fixture('Credentials').then(creds => credentials = creds);
-        cy.fixture('Errors').then(err => errors = err);
-        cy.fixture('Strings').then(str => strings = str);
-    });
+    
     beforeEach(() => {
+        cy.fixture('Errors.json').as('errors');
+        cy.fixture('Strings.json').as('strings');
         login.navigate();
     });
 
@@ -24,77 +19,77 @@ describe('Test login page', () => {
         login.loginButton().should('be.disabled');
     });
     
-    it('Verify error is displayed if email is in wrong format', () => {
-        login.enterEmail(credentials.invalidEmailFormat);
+    it('Verify error is displayed if email is in wrong format', function() {
+        login.enterEmail(Cypress.env('credentials').invalidEmailFormat);
         login.toggleRememberMe();
-        login.errorMessage().should('contain', errors.invalidEmailFormat);
+        login.errorMessage().should('contain', this.errors.invalidEmailFormat);
         login.loginButton().should('be.disabled');
     });
     
-    it('Verify error is displayed if non-existing email is entered', () => {
-        cy.enterCredentials(credentials.nonExistingEmail, 
-                            credentials.correctPassword_nonSSO);
+    it('Verify error is displayed if non-existing email is entered', function() {
+        cy.enterCredentials(Cypress.env('credentials').nonExistingEmail, 
+                            Cypress.env('credentials').correctPassword_nonSSO);
         login.clickLoginButton();
-        login.errorMessage().should('contain', errors.noSuchUser);
+        login.errorMessage().should('contain', this.errors.noSuchUser);
     });
 
-    it('Verify error is displayed if wrong password is entered', () => {
-        cy.logIn(   credentials.correctEmail_nonSSO, 
-                    credentials.nonExistingPassword)
-        login.errorMessage().should('contain', errors.invalidPassword);
+    it('Verify error is displayed if wrong password is entered', function() {
+        cy.logIn(Cypress.env('credentials').correctEmail_nonSSO, 
+                 Cypress.env('credentials').nonExistingPassword)
+        login.errorMessage().should('contain', this.errors.invalidPassword);
     });
     
-    it('Verify error is displayed if email is deleted', () => {
-        login.enterEmail(credentials.nonExistingEmail);
+    it('Verify error is displayed if email is deleted', function() {
+        login.enterEmail(Cypress.env('credentials').nonExistingEmail);
         login.toggleRememberMe();
         login.deleteEmail();
         login.toggleRememberMe();
-        login.errorMessage().should('contain', errors.fieldIsRequired);
+        login.errorMessage().should('contain', this.errors.fieldIsRequired);
         login.loginButton().should('be.disabled');
     });
 
-    it('Verify Clear Email button is working', () => {
-        login.enterEmail(credentials.nonExistingEmail);
+    it('Verify Clear Email button is working', function() {
+        login.enterEmail(Cypress.env('credentials').nonExistingEmail);
         login.toggleRememberMe();
         login.clickClearEmail();
         login.emailInput().should('be.empty');
         login.toggleRememberMe();
-        login.errorMessage().should('contain', errors.fieldIsRequired);
+        login.errorMessage().should('contain', this.errors.fieldIsRequired);
         login.loginButton().should('be.disabled');
     });
 
-    it('Verify error is displayed if password is deleted', () => {
-        cy.enterCredentials(credentials.nonExistingEmail, 
-                            credentials.nonExistingPassword);
+    it('Verify error is displayed if password is deleted', function() {
+        cy.enterCredentials(Cypress.env('credentials').nonExistingEmail, 
+                            Cypress.env('credentials').nonExistingPassword);
         login.toggleRememberMe();
         login.deletePassword();
         login.toggleRememberMe();
-        login.errorMessage().should('contain', errors.fieldIsRequired);
+        login.errorMessage().should('contain', this.errors.fieldIsRequired);
         login.loginButton().should('be.disabled');
     });
     
-    it('Verify Clear Password button is working', () => {
-        cy.enterCredentials(credentials.nonExistingEmail, 
-                            credentials.nonExistingPassword);
+    it('Verify Clear Password button is working', function() {
+        cy.enterCredentials(Cypress.env('credentials').nonExistingEmail, 
+                            Cypress.env('credentials').nonExistingPassword);
         login.toggleRememberMe();
         login.clickClearPassword();
         login.passwordInput().should('be.empty');
         login.toggleRememberMe();
-        login.errorMessage().should('contain', errors.fieldIsRequired);
+        login.errorMessage().should('contain', this.errors.fieldIsRequired);
         login.loginButton().should('be.disabled');
     });
 
-    it('Verify SSO login buttons are visible', () => {
+    it('Verify SSO login buttons are visible', function(){
         login.ssoLoginButtons()
             .should('be.visible')
-            .should('contain', strings.googleSSO)
-            .should('contain', strings.edmodoSSO)
-            .should('contain', strings.microsoftSSO);
+            .should('contain', this.strings.googleSSO)
+            .should('contain', this.strings.edmodoSSO)
+            .should('contain', this.strings.microsoftSSO);
     });
 
-   it('Verify login with correct credentials', () => {
-        cy.logIn(credentials.correctEmail_nonSSO, 
-                 credentials.correctPassword_nonSSO);
-        cy.url().should('eq',login.getBaseUrl()+'/dashboard/community');
+   it('Verify login with correct credentials', function() {
+        cy.logIn(Cypress.env('credentials').correctEmail_nonSSO, 
+                 Cypress.env('credentials').correctPassword_nonSSO);
+        cy.url().should('eq',Cypress.config('baseUrl')+'/dashboard/community');
     });
 });

@@ -1,0 +1,4 @@
+{
+    "extends": "./cypress.json",
+    "baseUrl": "https://app.wizer.me"
+}

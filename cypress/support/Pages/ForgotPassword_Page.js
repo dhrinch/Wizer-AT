@@ -1,5 +1,4 @@
-import { Utility } from "../utility"
-const url = new Utility().getURL();
+const url = Cypress.config('baseUrl');
 
 class ForgotPasswordPage{
     emailInput(){
@@ -16,6 +15,26 @@ class ForgotPasswordPage{
 
     resetPasswordPageTitle() {
         return cy.get('.title');
+    }
+
+    newPasswordInput() { 
+        return cy.get('input[placeholder = "New password"]');
+    }
+
+    repeatPasswordInput() { 
+        return cy.get('input[placeholder = "Repeat password"]');
+    }
+
+    newPasswordError() {
+        return cy.get('input[placeholder = "New password"]>.error');
+    }
+
+    repeatPasswordError() {
+        return cy.get('input[placeholder = "Repeat password"]>.error');
+    }
+
+    saveNewPasswordButton() {
+        return  cy.get('.button-container')
     }
 
     navigate() {
@@ -41,6 +60,22 @@ class ForgotPasswordPage{
     clickClearEmail(){
         this.clearEmailButton()
             .click();
+    }
+
+    enterNewPassword(password) {
+        this.newPasswordInput()
+            .clear()
+            .type(password)
+    }
+
+    enterRepeatedPassword(password) {
+        this.repeatPasswordInput()
+            .clear()
+            .type(password)
+    }
+
+    clickSaveNewPassword() {
+        this.saveNewPasswordButton().click();
     }
 }
 export default ForgotPasswordPage
