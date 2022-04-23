@@ -6,8 +6,12 @@ class LandingPage {
         return cy.get('.navigation > .buttons > .class-code');
     }
 
+    classCodeError(){
+        return cy.get('.error');
+    }
+
     classCodeGoButton(){
-        return cy.get('.navigation > .buttons > .class-code');
+        return cy.get('.navigation > .buttons > .class-code > .wizer-btn');
     }
     
     navigate() {
@@ -23,5 +27,6 @@ class LandingPage {
         this.classCodeGoButton()
             .click();
     }
+
 }
 export default LandingPage

@@ -1,4 +1,4 @@
-# AT Framework for Wizer
+# Test Automation Framework for Wizer
 
 ## Cypress installation
 
@@ -11,6 +11,8 @@ In order to run tests on different environments, each having a separate set of c
 Cypress UI can be launched from the comand line interface via ```npm run cy:open:<env>``` command, where ```<env>``` is an appropriate server environment. Aliases for the environment are as follows: ```stg``` for Staging server, ```second``` for Secondary environment, ```prod``` for Production environment and ```dev``` for Dev environment, i.e., for example, to launch Cypress UI for Secondary environment the command would be ```npm run cy:open:second```.
 
 In Cypress UI, tests can be run by clicking on the name of the spec file (e.g. ```login_spec.js```). After this, Cypress will open a browser window and  run all tests from sleected spec file sequentially. Successful tests will be marked by a green checkmark, failed ones will be highlighted in red and will provide details on the error.
+
+It is also possible to run all tests from all specs in headed mode by clicking the ```Run <number of available spec files> inegration specs``` button at the top right.
 
 ## Running tests headlessly
 

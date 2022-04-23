@@ -9,5 +9,6 @@
     "nonMatchingPasswords" : "Passwords must match",
     "emailAlreadyUsed" : "This email is already being used. Try another one.",
     "passwordsDoNotMatch" : "Passwords do not match!",
-    "passwordResetWrongLength" : "Password must be 6-15 characters."
+    "passwordResetWrongLength" : "Password must be 6-15 characters.",
+    "classTokenNotFound" : "Token not found"
 }

@@ -1,9 +1,10 @@
 import ForgotPasswordPage from '../support/Pages/ForgotPassword_Page';
+import ResetPasswordPage from '../support/Pages/ResetPassword_Page';
 
 describe('Test password recovery page', () => {
     const forgot = new ForgotPasswordPage();
     
-    let token;
+    let token = Cypress.env('passwordResetToken');
     
     beforeEach(() => {
         cy.fixture('Errors.json').as('errors');
@@ -49,34 +50,22 @@ describe('Test password recovery page', () => {
         cy.wait('@forgot').then((xhr) => {
             const response = xhr.response.body;
             token = response.token;
+            cy.log(token);
             cy.get('@forgot')
-                            .its('request.body').should('deep.equal', {
-                                email: Cypress.env('credentials').correctEmail_nonSSO
-                            })
+                .its('request.body').should('deep.equal', {
+                    email: Cypress.env('credentials').correctEmail_nonSSO
+                })
             cy.get('@forgot')
-                            .its('response.body').should('contain', {
-                                reset: 'success',
-                            })
+                .its('response.body').should('contain', {
+                    reset: 'success',
+                })
         });
     });
     
     it('Verify "Reset your password" page can be accessed with "Forgot Password" token', function() {
-        cy.visit('https://app.wizer.me/reset/'+token);
-        forgot.resetPasswordPageTitle().should('contain', this.strings.resetPasswordPageTitle);
-    });
-
-    it('Verify all links on "Reset you password" page', () => {
-        cy.visit('https://app.wizer.me/reset/'+token);
-        cy.get('a').each(page => {
-            cy.request(page.prop('href'))
-        });
-        forgot.saveNewPasswordButton().should('.be.disabled');
-    });
-
-    it('Verify error message is displayed on "Reset your password" page if password is too short', function() {
-        cy.visit('https://app.wizer.me/reset/'+token);
-        forgot.enterNewPassword(Cypress.env('credentials').tooShortPasswordTeacher);
-        forgot.saveNewPasswordButton().should('.be.disabled');
-        forgot.newPasswordError().should('contain', this.errors.passwordResetWrongLength);
+        let reset = new ResetPasswordPage();
+        cy.log(token);
+        reset.navigate(token);
+        reset.pageTitle().should('contain', this.strings.resetPasswordPageTitle);
     });
 });
