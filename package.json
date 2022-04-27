@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@bahmutov/cypress-extends": "^1.1.0",
-    "cypress": "^9.5.4"
+    "cypress": "^9.6.0"
   },
   "scripts": {
     "cy:open:prod": "cypress open --config-file env_prod.json",

@@ -45,7 +45,7 @@ describe('Test password recovery page', () => {
     it('Verify "Forgot Password" token is being sent when Send button is clicked', () => {
         forgot.enterEmail(Cypress.env('credentials').correctEmail_nonSSO);
         cy.intercept('POST', '/forgot').as('forgot');
-        forgot.sendButton().click();
+        forgot.clickSendButton();
 
         cy.wait('@forgot').then((xhr) => {
             const response = xhr.response.body;

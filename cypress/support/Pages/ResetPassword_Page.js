@@ -6,23 +6,27 @@ class ResetPasswordPage{
     }
 
     newPasswordInput() { 
-        return cy.get('input[placeholder = "New password"]');
+        return cy.get('#input_0');
     }
 
     repeatPasswordInput() { 
-        return cy.get('input[placeholder = "Repeat password"]');
+        return cy.get('#input_1');
     }
 
-    newPasswordError() {
-        return cy.get('input[placeholder = "New password"]>.error');
+    newPasswordLengthError() {
+        return cy.get('div.error.md-input-message-animation.ng-scope.ng-enter-prepare');
     }
 
-    repeatPasswordError() {
-        return cy.get('input[placeholder = "Repeat password"]>.error');
+    passwordIsRequiredError(){
+        return cy.get('div.error.md-input-message-animation.ng-scope');
+    }
+
+    passwordsNotMatchingError() {
+        return cy.get('div.error.md-input-message-animation.ng-scope.ng-enter-prepare');
     }
 
     saveNewPasswordButton() {
-        return cy.get('.button-container')
+        return cy.get('button.md-raised.md-button.md-ink-ripple');
     }
 
     navigate(token) {

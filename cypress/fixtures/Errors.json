@@ -10,5 +10,6 @@
     "emailAlreadyUsed" : "This email is already being used. Try another one.",
     "passwordsDoNotMatch" : "Passwords do not match!",
     "passwordResetWrongLength" : "Password must be 6-15 characters.",
+    "passwordIsRequired" : "Password is required to keep your account safe",
     "classTokenNotFound" : "Token not found"
 }

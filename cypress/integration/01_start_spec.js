@@ -15,9 +15,14 @@ describe('Test landing page', () => {
         });
     });
 
-    it.only('Verify entering class code redirects to student login page',() => {
-        start.enterClassCode(Cypress.env('credentials').classCode);
+    it('Verify error is displayed when non-exisitng class code is entered', function() {
+        start.enterClassCode(Cypress.env('credentials').tooShortPasswordTeacher);
+        start.classCodeError().should('contain', this.errors.classTokenNotFound);
+    });
+
+    it('Verify entering class code redirects to student login page',() => {
+        start.enterClassCode(Cypress.env('classCode'));
         start.clickGoButton();
-        cy.url().should('eq',Cypress.config('baseUrl')+'/studentSignin?redir=%2FjoinClass%2F' + Cypress.env('credentials').classCode + '&name=Join%20Class:%20testoard/community');
+        cy.url().should('eq',Cypress.config('baseUrl')+'/studentSignin?redir=%2FjoinClass%2F' + Cypress.env('classCode') + '&name=Join%20Class:%20test');
     })
 })
