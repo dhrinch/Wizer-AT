@@ -11,7 +11,7 @@ class LandingPage {
     }
 
     classCodeGoButton(){
-        return cy.get('button.mat-focus-indicator.wizer-btn.mat-button.mat-button-base');
+        return cy.get('.navigation > .buttons > .class-code > .wizer-btn');
     }
     
     navigate() {
