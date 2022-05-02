@@ -1,4 +1,4 @@
-name: Deploy Wizer on K8s
+name: Run cypress on dev
 
 # This action works with pull requests and pushes
 on:
