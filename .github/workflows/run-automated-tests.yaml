@@ -17,8 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 17.8.0
-      - run: npm install cypress --save-dev
-      - run: npm i -D @bahmutov/cypress-extends
+      - run: npm install
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
