@@ -26,4 +26,8 @@ jobs:
       - name: Run tests
         run: npm run cy:run:dev
       - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: |
+            cypress/screenshots
