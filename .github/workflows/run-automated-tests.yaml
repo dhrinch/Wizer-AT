@@ -25,7 +25,5 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm run cy:run:dev
-      # - name: Cypress run
-      #   uses: cypress-io/github-action@v2
-      #   with:
-      #     start: npm run cy:run:dev
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
