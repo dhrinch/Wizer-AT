@@ -1,0 +1,21 @@
+name: Deploy Wizer on K8s
+
+# This action works with pull requests and pushes
+on:
+  # repository_dispatch:
+  #   types: [deploy]
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm install cypress --save-dev
+          start: npm run cy:run:dev
