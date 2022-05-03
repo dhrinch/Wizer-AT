@@ -20,9 +20,14 @@ describe('Test landing page', () => {
         start.classCodeError().should('contain', this.errors.classTokenNotFound);
     });
 
-    it('Verify entering class code redirects to student login page',() => {
+    it("Verify entering class code redirects to student login page", () => {
+        cy.intercept("https://app.wizer.me/learn/searchToken").as("token");
+        cy.visit("https://wizer.me");
+        start.classCodeInput()        
+          .should("be.visible");        
         start.enterClassCode(Cypress.env('classCode'));
+        cy.wait("@token");
         start.clickGoButton();
-        cy.url().should('eq',Cypress.config('baseUrl')+'/studentSignin?redir=%2FjoinClass%2F' + Cypress.env('classCode') + '&name=Join%20Class:%20test');
-    })
+        cy.url().should('eq','https://app.wizer.me/studentSignin?redir=%2FjoinClass%2F' + Cypress.env('classCode') + '&name=Join%20Class:%20test');
+      });
 })
