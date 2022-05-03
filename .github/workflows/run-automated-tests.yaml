@@ -1,0 +1,33 @@
+name: Run cypress on dev
+
+# This action works with pull requests and pushes
+on:
+  # repository_dispatch:
+  #   types: [deploy]
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  Run-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install required libs
+        run: sudo apt install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Set up NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 17.8.0
+      - name: Install npm dependencies
+        run: npm install
+      - name: Run tests
+        run: npm run cy:run:dev
+      - name: Download all workflow run artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: |
+            cypress/screenshots
