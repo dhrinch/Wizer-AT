@@ -3,7 +3,7 @@ const url = Cypress.config('baseUrl');
 class LandingPage {
 
     classCodeInput(){
-        return cy.get('.navigation > .buttons > .class-code');
+        return cy.get('.navigation [placeholder="Class code"]');
     }
 
     classCodeError(){
@@ -11,7 +11,7 @@ class LandingPage {
     }
 
     classCodeGoButton(){
-        return cy.get('.navigation > .buttons > .class-code > .wizer-btn');
+        return cy.get(".navigation button").contains("Go");
     }
     
     navigate() {

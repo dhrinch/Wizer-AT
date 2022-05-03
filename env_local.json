@@ -1,7 +1,7 @@
 {
     "extends": "./cypress.json",
-    "baseUrl": "https://stgapp.wizer.me",
-
+    "baseUrl": "https://localhost:1337",
+    
     "env":{
         "credentials" : {
             "correctEmail_nonSSO" : "dennis+nonPremium@wizer.me",

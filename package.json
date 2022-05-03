@@ -4,10 +4,12 @@
     "cypress": "^9.6.0"
   },
   "scripts": {
+    "cy:open:local": "cypress open --config-file env_local.json",
     "cy:open:prod": "cypress open --config-file env_prod.json",
     "cy:open:stg": "cypress open --config-file env_stg.json",
     "cy:open:second": "cypress open --config-file env_second.json",
     "cy:open:dev": "cypress open --config-file env_dev.json",
+    "cy:run:local": "cypress run --config-file env_local.json",
     "cy:run:prod": "cypress run --config-file env_prod.json",
     "cy:run:stg": "cypress run --config-file env_stg.json",
     "cy:run:second": "cypress run --config-file env_second.json",
